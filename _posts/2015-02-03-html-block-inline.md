@@ -5,89 +5,89 @@ subtitle: "HTML has 2 main <strong>types</strong> of elements"
 section: html
 ---
 
-In HTML, you'll mainly come across 2 types of HTML elements:
+En HTML, encontrará principalmente 2 tipos de elementos HTML:
 
-* **block** elements like:
+* ** bloquear ** elementos como:
 
-    * paragraphs `<p>`
-    * lists: unordered (with bullet points) `<ul>` or ordered lists (with numbers) `<ol>`
-    * headings: from 1st level `<h1>` to 6th level headings `<h6>`
-    * articles `<article>`
-    * sections `<section>`
-    * long quotes `<blockquote>`
+  * párrafos `<p>`
+    * listas: desordenadas (con viñetas) `<ul>` o listas ordenadas (con números) `<ol>`
+    * encabezados: del 1er nivel `<h1>` al 6to nivel encabezados `<h6>`
+    * artículos `<artículo>`
+    * secciones `<sección>`
+    * comillas largas `<blockquote>`
 
-* **inline** elements like:
+* **elementos en línea** como:
 
-    * links `<a>`
-    * emphasised words `<em>`
-    * important words `<strong>`
-    * short quotes `<q>`
-    * abbreviations `<abbr>`
+    * enlaces `<a>`
+    * palabras destacadas `<em>`
+    * palabras importantes `<strong>`
+    * comillas cortas `<q>`
+    * abreviaturas `<abbr>`
 
-**Block** elements are meant to **structure** the main parts of your page, by dividing your content in _coherent_ blocks.
+Los elementos **Bloque** están destinados a **estructurar** las partes principales de su página, dividiendo su contenido en _ bloques coherentes_.
 
-**Inline** elements are meant to differentiate _part_ of a text, to give it a particular function or meaning. Inline elements usually comprise a single or few words.
+Los elementos **en línea** están destinados a diferenciar _parte_ de un texto, para darle una función o significado particular. Los elementos en línea generalmente comprenden una o pocas palabras.
 
 
-{% highlight html %}
-<p>Have you seen this <a href="https://www.youtube.com">amazing video</a> on YouTube?</p>
-{% endhighlight %}
+{% highlight html%}
+<p> ¿Has visto este <a href="https://www.youtube.com"> increíble video </a> en YouTube? </p>
+{% endhighlight%}
 
-### Opening and closing tags
+### Etiquetas de apertura y cierre
 
-**All** block-level elements have an opening and closing tags.
+**Todos** los elementos a nivel de bloque tienen etiquetas de apertura y cierre.
 
-As a result, self-enclosing elements are **inline** elements, simply because their syntax don't allow them to contain any other HTML element.
+Como resultado, los elementos auto-adjuntos son elementos **en línea**, simplemente porque su sintaxis no les permite contener ningún otro elemento HTML.
 
-<div class="table">
-  <table>
+<div class = "tabla">
+  <tabla>
     <tr>
-      <th class="empty"></th>
-      <th>Have opening and closing tags</th>
-      <th>Self-enclosing</th>
+      <th class = "vacío"> </th>
+      <th> Tener etiquetas de apertura y cierre </th>
+      <th> Envolvente </th>
     </tr>
     <tr>
-      <th>Block elements</th>
+      <th> Elementos de bloque </th>
       <td>
-        <code>&lt;p&gt;</code>
-        <code>&lt;/p&gt;</code>
+        <code> &lt;p&gt; </code>
+        <code> &lt;/p&gt; </code>
         <br>
-        <code>&lt;ul&gt;</code>
-        <code>&lt;/ul&gt;</code>
+        <code> &lt;ul&gt; </code>
+        <code> &lt;/ul&gt; </code>
         <br>
-        <code>&lt;ol&gt;</code>
-        <code>&lt;/ol&gt;</code>
+        <code> &lt;ol&gt; </code>
+        <code> &lt;/ol&gt; </code>
       </td>
       <td>
-        <strong>Impossible</strong>
+        <strong> Imposible </strong>
       </td>
     </tr>
     <tr>
-      <th>Inline elements</th>
+      <th> Elementos en línea </th>
       <td>
-        <code>&lt;a&gt;</code>
-        <code>&lt;/a&gt;</code>
+        <code> &lt;a&gt; </code>
+        <code> &lt;/a&gt; </code>
         <br>
-        <code>&lt;strong&gt;</code>
-        <code>&lt;/strong&gt;</code>
+        <code> &lt;strong&gt; </code>
+        <code> &lt;/strong&gt; </code>
         <br>
-        <code>&lt;em&gt;</code>
-        <code>&lt;/em&gt;</code>
+        <code> &lt;em&gt; </code>
+        <code> &lt;/em&gt; </code>
       </td>
       <td>
-        <code>&lt;input&gt;</code>
+        <code> &lt;input&gt; </code>
         <br>
-        <code>&lt;br&gt;</code>
+        <code> &lt;br&gt; </code>
         <br>
-        <code>&lt;img&gt;</code>
+        <code> &lt;img&gt; </code>
       </td>
     </tr>
   </table>
 </div>
 
-### Other types of HTML elements
+### Otros tipos de elementos HTML
 
-There are several exceptions to the block/inline elements, but the ones you will most often encounter are:
+Hay varias excepciones a los elementos de bloque / en línea, pero los que encontrará con más frecuencia son:
 
-* **list items** for the `<li>`
-* **table**, **table rows**, **table cells** for `<table>`, `<tr>` and `<td>` respectively
+* **enumerar elementos** para el `<li>`
+* **tabla**,**filas de tabla** , **celdas de tabla** para `<tabla>`, `<tr>` y `<td>` respectivamente
