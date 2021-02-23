@@ -5,25 +5,25 @@ subtitle: "Sharing common properties"
 section: sass
 ---
 
-### The common properties case
+### El caso de propiedades comunes
 
-Sometimes you find yourself writing the **same set of properties** across different CSS rules.
+A veces te encuentras escribiendo el **mismo conjunto de propiedades** en diferentes reglas CSS.
 
-For example, let's say your design makes use of **small spaced uppercase letters** throughout the page: buttons, navigation bar, sidebar headings, tabs...
+Por ejemplo, supongamos que su diseño utiliza **letras mayúsculas pequeñas espaciadas** a lo largo de la página: botones, barra de navegación, títulos de la barra lateral, pestañas ...
 
-Something like this:
+Algo como esto:
 
-<div class="result">
-  <p style="color: lightslategrey; font-size: 10px; letter-spacing: 0.1em; line-height: 12px; text-transform: uppercase;">Small spaced uppercase letters</p>
+<div class = "resultado">
+  <p style = "color: lightslategrey; font-size: 10px; letter-spacing: 0.1em; line-height: 12px; text-transform: uppercase;"> Letras mayúsculas con espacios pequeños </p>
 </div>
 
-How would that look like in your CSS? You could:
+¿Cómo se vería eso en tu CSS? Tú podrías:
 
-* use a common CSS **class** like `.small-uppercase`
-* **combine** the selectors
-* use a Sass **extend**
+* use una **clase** CSS común como `.small-mayúsculas`
+* **combinar** los selectores
+* usar un Sass **extender**
 
-#### Common CSS Class
+#### Clase CSS común
 
 {% highlight css %}
 .small-uppercase{
@@ -35,11 +35,11 @@ How would that look like in your CSS? You could:
 }
 {% endhighlight %}
 
-Having a `.small-uppercase` CSS rule is **semantically incorrect** because you'd end up writing your HTML as `<p class="small-uppercase">` which reverts to basically writing styles _within_ your HTML.
+Tener una regla CSS `.small-mayúsculas` es **semánticamente incorrecto** porque terminarías escribiendo tu HTML como` <p class = "small-mayúsculas"> `que revierte básicamente a estilos de escritura _dentro_ de tu HTML.
 
-#### Combine the selectors
+#### Combinar los selectores
 
-Because a CSS rule can accept any number of _selectors_, you could combine the shared properties under a **list** of selectors:
+Debido a que una regla CSS puede aceptar cualquier número de _selectores_, puede combinar las propiedades compartidas en una **lista** de selectores:
 
 {% highlight css %}
 .button,
@@ -54,18 +54,18 @@ Because a CSS rule can accept any number of _selectors_, you could combine the s
 }
 {% endhighlight %}
 
-This approach remains **semantically valid** because each selector describes the HTML element they're attached to.
+Este enfoque sigue siendo **semánticamente válido** porque cada selector describe el elemento HTML al que están adjuntos.
 
-However, there are 2 problems:
+Sin embargo, existen 2 problemas:
 
-* this CSS rule can become unmanagable as soon as the list of selectors becomes longer
-* because each selector has _specific_ rules of their own, you're separating your set of properties in **two** (the `.button` can have additional rules further down the CSS)
+* esta regla CSS puede volverse inmanejable tan pronto como la lista de selectores sea más larga
+* debido a que cada selector tiene sus propias reglas _específicas_, está separando su conjunto de propiedades en **dos** (el `.button` puede tener reglas adicionales más abajo en el CSS)
 
-Sass helps solving these problems.
+Sass ayuda a resolver estos problemas.
 
-### Sass @extend syntax
+### Sass @extend sintaxis
 
-A Sass `@extend` allows to **inherit** CSS properties from _another_ **selector**:
+Un `@ extend` de Sass permite ** heredar ** propiedades CSS de _ otro_ ** selector **:
 
 {% highlight scss %}
 // scss
@@ -102,22 +102,22 @@ A Sass `@extend` allows to **inherit** CSS properties from _another_ **selector*
 }
 {% endhighlight %}
 
-The `@extend` will **regroup** common properties under a **list** of selectors.
+El `@ extend` **reagrupará** propiedades comunes en una **lista** de selectores.
 
-The list is easily **maintainable** because you only add selectors one by one, and directly in the related selector.
+La lista es **fácil de mantener** porque solo agrega selectores uno por uno, y directamente en el selector relacionado.
 
-Your HTML remains **semantic** because each element keeps its descriptive class name.
+Su HTML permanece **semántico** porque cada elemento mantiene su nombre de clase descriptivo.
 
-### Difference with mixins
+### Diferencia con mixins
 
-Well, you might be thinking _"Wait, isn't it just like mixins then?"_?
+Bueno, podrías estar pensando _"Espera, ¿no es como los mixins entonces?"_?
 
-There are 2 differences:
+Hay 2 diferencias:
 
-* The `@extend` rule **doesn't** have parameters. Mixins do.
-* The `@extend` rule **does** combine selectors. Mixins don't.
+* La regla `@ extend` ** no ** tiene parámetros. Los mixins lo hacen.
+* La regla `@ extend` ** hace ** combinar selectores. Los mixins no lo hacen.
 
-Let's reuse our [overlay mixin](/sass-mixins.html#syntax), and also write a `.small-uppercase` rule:
+Reutilicemos nuestro [overlay mixin] (/ sass-mixins.html #syntax), y también escribamos una regla `.small-uppercase`:
 
 {% highlight scss %}
 // scss
@@ -168,17 +168,17 @@ Let's reuse our [overlay mixin](/sass-mixins.html#syntax), and also write a `.sm
 }
 {% endhighlight %}
 
-The list of properties is simply **repeated** as many times as the `@include small-uppercase()` is called.
+La lista de propiedades simplemente **se repite** tantas veces como se llame a `@include small-uppercase ()`.
 
-A Sass `@extend` is more **efficient**, as it only writes the common properties **once**.
+Un Sass `@ extend` es más **eficiente** , ya que solo escribe las propiedades comunes **una vez**.
 
-### Placeholders
+### Marcadores de posición
 
-Well, you might be thinking _"The `.small-uppercase` isn't semantic! I could use it in my HTML!"_?
+Bueno, podrías estar pensando _ "¡El` .small-mayúsculas` no es semántico! ¡Podría usarlo en mi HTML! "_?
 
-You're right, and that's why **placeholders** exist in Sass.
+Tienes razón, y es por eso que existen ** marcadores de posición ** en Sass.
 
-If you don't want or need the `.small-uppercase` selector, transform it into a **Sass placeholder** by replacing the dot with a **percentage sign** `%`:
+Si no quieres o necesitas el selector `.small-mayúsculas`, transfórmalo en un **marcador de posición Sass** reemplazando el punto con un **signo de porcentaje**`% `:
 
 {% highlight scss %}
 // scss
@@ -214,45 +214,45 @@ If you don't want or need the `.small-uppercase` selector, transform it into a *
 }
 {% endhighlight %}
 
-Note that the generated CSS **doesn't include the `.small-uppercase` selector anymore**. That's because the `%small-uppercase` rule is only here to provide a **location** for common properties.
+Tenga en cuenta que el CSS **generado ya no incluye el selector `.small-uppercase`**. Esto se debe a que la regla `% minúsculas en mayúsculas` solo está aquí para proporcionar una **ubicación** para propiedades comunes.
 
-### Difference between extend, placeholders and mixins
+### Diferencia entre extender, marcadores de posición y mixins
 
-<div class="table">
-  <table>
+<div class = "tabla">
+  <tabla>
     <tr>
-      <th class="empty"></th>
-      <th>Definition</th>
-      <th>Referencing</th>
-      <th>Combines selectors?</th>
-      <th>Allows parameters?</th>
-      <th>Can be used on its own?</th>
+      <th class = "vacío"> </th>
+      <th> Definición </th>
+      <th> Referenciación </th>
+      <th> ¿Combina selectores? </th>
+      <th> ¿Permite parámetros? </th>
+      <th> ¿Se puede usar solo? </th>
     </tr>
     <tr>
-      <th>Mixins</th>
-      <td><code>@mixin name()</code></td>
-      <td><code>@include name()</code></td>
-      <td class="no">No</td>
-      <td class="yes"><span>Yes</span></td>
-      <td class="no">No</td>
+      <th> Mixins </th>
+      <td> <code> @mixin nombre () </code> </td>
+      <td> <code> @include nombre () </code> </td>
+      <td class = "no"> No </td>
+      <td class = "yes"> <span> Sí </span> </td>
+      <td class = "no"> No </td>
     </tr>
     <tr>
-      <th>Extensions</th>
-      <td>Any class</td>
-      <td><code>@extend .class</code></td>
-      <td class="yes"><span>Yes</span></td>
-      <td class="no">No</td>
-      <td class="yes"><span>Yes</span></td>
+      <th> Extensiones </th>
+      <td> Cualquier clase </td>
+      <td> <code> @extend .class </code> </td>
+      <td class = "yes"> <span> Sí </span> </td>
+      <td class = "no"> No </td>
+      <td class = "yes"> <span> Sí </span> </td>
     </tr>
     <tr>
-      <th>Placeholders</th>
-      <td><code>%placeholder</code></td>
-      <td><code>@extend %placeholder</code></td>
-      <td class="yes"><span>Yes</span></td>
-      <td class="no">No</td>
-      <td class="no">No</td>
+      <th> Marcadores de posición </th>
+      <td><code>%placeholder</code> </td>
+      <td> <code> @extend% placeholder </code> </td>
+      <td class = "yes"> <span> Sí </span> </td>
+      <td class = "no"> No </td>
+      <td class = "no"> No </td>
     </tr>
   </table>
 </div>
 
-When in doubt, use **mixins**. They generate more CSS lines and are less elegant than extend/placeholders, but they are straightforward.
+En caso de duda, utilice **mixins**. Generan más líneas CSS y son menos elegantes que los extensores / marcadores de posición, pero son sencillos.
